@@ -1,5 +1,6 @@
 # MCDS_capstone
 semi-supervised gan
+https://github.com/eriklindernoren/Keras-GAN
 
 Install dependencies:
 
