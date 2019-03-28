@@ -3,7 +3,7 @@ semi-supervised gan
 https://github.com/eriklindernoren/Keras-GAN
 
 Create virtual environment:
-$virtualenv env
+$virtualenv env \n
 $source env/bin/activate
 
 Install dependencies:
