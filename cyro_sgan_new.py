@@ -3,6 +3,7 @@ from __future__ import print_function, division
 from keras.datasets import mnist
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout, multiply, GaussianNoise
 from keras.layers import BatchNormalization, Activation, Embedding, ZeroPadding2D
+from keras.layers import Convolution3D, MaxPooling3D, UpSampling3D
 from keras.layers.advanced_activations import LeakyReLU
 from keras.layers.convolutional import UpSampling2D, Conv2D
 from keras.models import Sequential, Model
@@ -56,16 +57,15 @@ class SGAN:
         self.combined.compile(loss=['binary_crossentropy'], optimizer=optimizer)
 
     def convert_to_3D(self, input):
-	    output = np.zeros((28, 28, 28), dtype = float)
-	    k = 0
-	    for i in range (0, 5):
-		    for j in range(0, 6):
-			    if k == 28:
-				    return output
-			    img = input[(29*i):(29*i+28), (29*j):(29*j+28)]
-			    output[:,:,k] = img
-			    k += 1
-        return output
+        output = np.zeros((28, 28, 28), dtype = float)
+        k = 0
+        for i in range (0, 5):
+            for j in range(0, 6):
+                if k == 28:
+                    return output
+                img = input[(29*i):(29*i+28), (29*j):(29*j+28)]
+                output[:,:,k] = img
+                k += 1
 
     def build_generator(self):
 
